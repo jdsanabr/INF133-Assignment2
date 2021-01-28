@@ -10,6 +10,23 @@ class Tweet {
 	//returns either 'live_event', 'achievement', 'completed_event', or 'miscellaneous'
     get source():string {
         //TODO: identify whether the source is a live event, an achievement, a completed event, or miscellaneous.
+        //
+        //if text contains/includes 'live', then return 'live-event'
+        if(this.text.includes("live")) {
+            return "live-event";
+        }
+
+        //if text contains/includes 'achieve', then return 'achievement'
+        if(this.text.includes("achieve")) {
+            return "achievement";
+        }
+
+        //if text contains/includes 'completed', then return 'completed-event'
+        if(this.text.includes("completed")) {
+            return "completed-event";
+        }
+
+        //if none of the above, then return 'miscellaneous'
         return "unknown";
     }
 
