@@ -12,22 +12,26 @@ class Tweet {
         //TODO: identify whether the source is a live event, an achievement, a completed event, or miscellaneous.
         //
         //if text contains/includes 'live', then return 'live-event'
-        if(this.text.includes("live")) {
+        if(this.text.includes("RKlive")) {
+            //text will contain: "...#RKLive #Runkeeper"
             return "live-event";
         }
 
         //if text contains/includes 'achieve', then return 'achievement'
         if(this.text.includes("achieve")) {
+            //text will start with: "Achieved a new..."
             return "achievement";
         }
 
         //if text contains/includes 'completed', then return 'completed-event'
         if(this.text.includes("completed")) {
+            //text will contain: "Just completed a X mi/km run/walk..."
             return "completed-event";
         }
 
         //if none of the above, then return 'miscellaneous'
-        return "unknown";
+        //return "unknown";
+        return "miscellaneous";
     }
 
     //returns a boolean, whether the text includes any content written by the person tweeting.
