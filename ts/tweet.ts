@@ -76,7 +76,17 @@ class Tweet {
         if(this.source != 'completed_event') {
             return 0;
         }
-        //TODO: prase the distance from the text of the tweet
+
+        //TODO: parse the distance from the text of the tweet
+        //
+        //For ex, "text": "Just completed a 8.82 km run with @Runkeeper. Check it out! https://t.co/eo0KBQpKXk #Runkeeper"
+        //Extract 8.82
+        if(this.text.includes("run") || this.text.includes("walk")) {
+            //I chose parseFloat() to extract the distance since the it will be a double (km or mi)
+            var myNum = parseFloat(this.text);
+            return myNum;
+        }
+
         return 0;
     }
 
