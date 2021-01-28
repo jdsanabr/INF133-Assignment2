@@ -57,7 +57,11 @@ class Tweet {
             return "";
         }
         //TODO: parse the written text from the tweet
-        return "";
+        //return "";
+        //text ex: "text": "Just posted a 10.34 km run - New PB on this route \ud83d\ude42 https://t.co/7cGHlhEIlW #Runkeeper",
+        //code below would return "New PB on this route \ud83d\ude42 https://t.co/7cGHlhEIlW #Runkeeper"
+        //assuming I understood what the prompt is asking and I got the syntax correct
+        return this.text.substring(this.text.indexOf('-')+2);
     }
 
     get activityType():string {
