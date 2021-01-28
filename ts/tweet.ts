@@ -37,7 +37,19 @@ class Tweet {
     //returns a boolean, whether the text includes any content written by the person tweeting.
     get written():boolean {
         //TODO: identify whether the tweet is written
-        return false;
+        //
+        //note: I think that user-written tweets are those that contain a '-' followed by comments or hashtags
+        //      since not all texts contain a '-' followed by more text
+        //ex:
+        //
+        //"text": "Just completed a 7.03 km run - Note to self. Phone calls mid run, ruin runs https://t.co/HO4G1Oki1F #Runkeeper",
+        if(this.text.includes("-")) {
+            return true;
+        } else {
+            //Again, if I understood this correctly, an example of no user-written tweets would be:
+            //"text": "Just completed a 4.08 mi run with @Runkeeper. Check it out! https://t.co/dG1u0Omco5 #Runkeeper",
+            return false;
+        }
     }
 
     get writtenText():string {
