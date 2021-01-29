@@ -68,7 +68,32 @@ class Tweet {
         if (this.source != 'completed_event') {
             return "unknown";
         }
+
         //TODO: parse the activity type from the text of the tweet
+        //
+        //"completed" implies various activity types (i.e. run, walk, swim, etc)
+        if(this.text.includes("completed")) {
+            if(this.text.includes("run")) {
+                return "run";
+            }
+
+            if(this.text.includes("walk")) {
+                return "walk";
+            }
+
+            if(this.text.includes("swim")) {
+                return "swim";
+            }
+
+            if(this.text.includes("ski")) {
+                return "ski";
+            }
+
+            if(this.text.includes("bike")) {
+                return "bike"
+            }
+        }
+
         return "";
     }
 
