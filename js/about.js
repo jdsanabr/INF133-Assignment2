@@ -14,48 +14,57 @@ function parseTweets(runkeeper_tweets) {
 	document.getElementById('numberTweets').innerText = tweet_array.length;
 
 
-	var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-	//Update 'firstDate' tag
+	//Update 'firstDate' Id tag
 	document.getElementById('firstDate').innerText = 'September 23, 2018';
 	//
 
-	//Update 'lastDate' tag
+	//Update 'lastDate' Id tag
 	document.getElementById('lastDate').innerText = 'September 30, 2018';
 	//
 
 
-	//Update 'completedEvents' tag
+	//Update 'completedEvents' class tag
+	//document.getElementsByClassName('completedEvents')[0].innerText = ;
 	//
 
-	//Update 'completedEventsPct' tag
-	//
-
-
-	//Update 'liveEvents' tag
-	//
-
-	//Update 'liveEventsPct' tag
+	//Update 'completedEventsPct' class tag
+	//document.getElementsByClassName('completedEventsPct')[0].innerText = ;
 	//
 
 
-	//Update 'achievenemts' tag
+	//Update 'liveEvents' class tag
+	//document.getElementsByClassName('liveEvents')[0].innerText = ;
 	//
 
-	//Update 'achievementsPct' tag
-	//
-
-
-	//Update 'miscellaneous' tag
-	//
-
-	//Update 'miscellaneousPct' tag
+	//Update 'liveEventsPct' class tag
+	//document.getElementsByClassName('liveEventsPct')[0].innerText = ;
 	//
 
 
-	//Update 'written' tag
+	//Update 'achievements' class tag
+	//document.getElementsByClassName('achievements')[0].innerText = ;
 	//
 
-	//Update 'writtenPct tag
+	//Update 'achievementsPct' class tag
+	//document.getElementsByClassName('achievementsPct')[0].innerText = ;
+	//
+
+
+	//Update 'miscellaneous' class tag
+	//document.getElementsByClassName('miscellaneous')[0].innerText = ;
+	//
+
+	//Update 'miscellaneousPct' class
+	//document.getElementsByClassName('miscellaneousPct')[0].innerText = ;
+	//
+
+
+	//Update 'written' class tag
+	//document.getElementsByClassName('written')[0].innerText = ;
+	//
+
+	//Update 'writtenPct class tag
+	//document.getElementsByClassName('writtenPct')[0].innerText = ;
 	//
 }
 
