@@ -12,8 +12,8 @@ class Tweet {
         //TODO: identify whether the source is a live event, an achievement, a completed event, or miscellaneous.
         
         //ex: "Watch my run right now with @Runkeeper Live https://t.co/5bL8ZPdped #RKLive #Runkeeper"
-        //text starts with "Watch my " and contains/includes "#RKlive", return "live-event"
-        if(this.text.startsWith("Watch my ") && this.text.includes("RKlive")) {
+        //text starts with "Watch my ", return "live-event"
+        if(this.text.startsWith("Watch my ")) { //I removed "contains/includes "#RKlive"" since it produced 0 results
             return "live-event";
         }
 
