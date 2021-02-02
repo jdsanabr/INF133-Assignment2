@@ -4,8 +4,8 @@
 
 */10
 - 1/1 Tweet dates
-- */1 Tweet categories
-- */1 User-written tweets
+- 1/1 Tweet categories
+- 1/1 User-written tweets
 - */2 Determining activity type and distance
 - */2 Graphing activities by distance
 - */1 Implementing the search box
@@ -14,7 +14,7 @@
 2. How long, in hours, did it take you to complete this assignment?
 I invested around 1 hour to review JS (and I noticed it isn't too different from other prog langs in terms of syntax). As I
 type this sentence, it is 1/26 and I hope it isn't too hard to implement my limited JS knowledge :)
-MAYBE CHANGE: I will invest at least 3 hours per day (for 7 days).
+I invested an average of at least 3 hours per day (for 7 days).
 
 Total in hours: ~ 21 hours
 
@@ -31,4 +31,4 @@ using the forEach method so each counter can increment according to the amount o
 
 
 5. Is there anything special we need to know in order to run your code?
-
+No.
