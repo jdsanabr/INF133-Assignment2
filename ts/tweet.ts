@@ -10,22 +10,22 @@ class Tweet {
 	//returns either 'live_event', 'achievement', 'completed_event', or 'miscellaneous'
     get source():string {
         //TODO: identify whether the source is a live event, an achievement, a completed event, or miscellaneous.
-        //
-        //if text contains/includes 'live', then return 'live-event'
-        if(this.text.includes("RKlive")) {
-            //text will contain: "...#RKLive #Runkeeper"
+        
+        //ex: "Watch my run right now with @Runkeeper Live https://t.co/5bL8ZPdped #RKLive #Runkeeper"
+        //text starts with "Watch my " and contains/includes "#RKlive", return "live-event"
+        if(this.text.startsWith("Watch my ") && this.text.includes("RKlive")) {
             return "live-event";
         }
 
-        //if text contains/includes 'achieve', then return 'achievement'
-        if(this.text.includes("achieve")) {
-            //text will start with: "Achieved a new..."
+        //ex: "text": "Achieved a new personal record with #Runkeeper: Distance... https://t.co/90lcXPp6SO #FitnessAlerts"
+        //text starts with "Achieved a new personal record with ", return "achievement"
+        if(this.text.startsWith("Achieved a new personal record with ")) {
             return "achievement";
         }
 
-        //if text contains/includes 'completed', then return 'completed-event'
-        if(this.text.includes("completed")) {
-            //text will contain: "Just completed a X mi/km run/walk..."
+        //ex: "Just completed a 5.02 km run with @Runkeeper. Check it out! https://t.co/98hGkyBCkz #Runkeeper"
+        //text starts with "Just completed ", return "completed-event"
+        if(this.text.startsWith("Just completed ")) {
             return "completed-event";
         }
 
