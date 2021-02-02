@@ -116,7 +116,7 @@ function parseTweets(runkeeper_tweets) {
 	if(miscellaneousPosts == 0) {
 		document.getElementsByClassName('miscellaneousPct')[0].innerText = miscellaneousPosts + "%";
 	} else {
-		var miscellaneousPercentage = math.format(100 * (achievements / tweet_array.length), {notation: 'fixed', precision: 2});
+		var miscellaneousPercentage = math.format(100 * (miscellaneousPosts / tweet_array.length), {notation: 'fixed', precision: 2});
 		document.getElementsByClassName('miscellaneousPct')[0].innerText = miscellaneousPercentage + "%";
 	}
 	//
@@ -136,7 +136,7 @@ function parseTweets(runkeeper_tweets) {
 	//
 
 	//Updates 'writtenPct class tag
-	var writtenPercentage = math.format(100 * (achievements / tweet_array.length), {notation: 'fixed', precision: 2});
+	var writtenPercentage = math.format(100 * (writtenCounter / tweet_array.length), {notation: 'fixed', precision: 2});
 	document.getElementsByClassName('writtenPct')[0].innerText = writtenPercentage + "%";
 	//
 }
