@@ -14,56 +14,84 @@ function parseTweets(runkeeper_tweets) {
 	document.getElementById('numberTweets').innerText = tweet_array.length;
 
 
-	//Update 'firstDate' Id tag
-	document.getElementById('firstDate').innerText = 'September 23, 2018';
+	//This will contain the very first tweet from the json file
+	var firstTweet = tweet_array[tweet_array.length - 1].time;
+	//This will contain the very last tweet from the json file
+	var lastTweet = tweet_array[0].time;
+	//I found the following concept by further researching "toLocaleDateString()" suggested by the Prof.
+	//Naming convention is also taken from the link provided by the Prof.
+	const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+	console.log("first tweet: " + firstTweet.toLocaleDateString('en-US', options)); //print date to console for debugging
+	console.log("last tweet: " + lastTweet.toLocaleDateString('en-US', options)); //print date to console for debugging
+
+
+	//Updates 'firstDate' Id tag
+	document.getElementById('firstDate').innerText = firstTweet.toLocaleDateString('en-US', options);
+	//document.getElementById('firstDate').innerText(firstTweet.toLocaleDateString('en-US', options));
+	
+	//Updates 'lastDate' Id tag
+	document.getElementById('lastDate').innerText = lastTweet.toLocaleDateString('en-US', options);
 	//
 
-	//Update 'lastDate' Id tag
-	document.getElementById('lastDate').innerText = 'September 30, 2018';
-	//
+
+	/**
+	 * NOTE: in order to correctly update each class tag, we need counters to keep
+	 * track of each category (completed event, live event, etc.)
+	 */
+	var liveEvents = 0;
+	var achievements = 0;
+	var completedEvents = 0;
+	var miscellaneousPosts = 0;
+
+	/**
+	 * Here, we need to increment each counter according to the source of the post
+	 */
+	// tweet_array.array.forEach(element => {
+		
+	// });
 
 
-	//Update 'completedEvents' class tag
+	//Updates 'completedEvents' class tag
 	//document.getElementsByClassName('completedEvents')[0].innerText = ;
 	//
 
-	//Update 'completedEventsPct' class tag
+	//Updates 'completedEventsPct' class tag
 	//document.getElementsByClassName('completedEventsPct')[0].innerText = ;
 	//
 
 
-	//Update 'liveEvents' class tag
+	//Updates 'liveEvents' class tag
 	//document.getElementsByClassName('liveEvents')[0].innerText = ;
 	//
 
-	//Update 'liveEventsPct' class tag
+	//Updates 'liveEventsPct' class tag
 	//document.getElementsByClassName('liveEventsPct')[0].innerText = ;
 	//
 
 
-	//Update 'achievements' class tag
+	//Updates 'achievements' class tag
 	//document.getElementsByClassName('achievements')[0].innerText = ;
 	//
 
-	//Update 'achievementsPct' class tag
+	//Updates 'achievementsPct' class tag
 	//document.getElementsByClassName('achievementsPct')[0].innerText = ;
 	//
 
 
-	//Update 'miscellaneous' class tag
+	//Updates 'miscellaneous' class tag
 	//document.getElementsByClassName('miscellaneous')[0].innerText = ;
 	//
 
-	//Update 'miscellaneousPct' class
+	//Updates 'miscellaneousPct' class
 	//document.getElementsByClassName('miscellaneousPct')[0].innerText = ;
 	//
 
 
-	//Update 'written' class tag
+	//Updates 'written' class tag
 	//document.getElementsByClassName('written')[0].innerText = ;
 	//
 
-	//Update 'writtenPct class tag
+	//Updates 'writtenPct class tag
 	//document.getElementsByClassName('writtenPct')[0].innerText = ;
 	//
 }
