@@ -40,6 +40,7 @@ function parseTweets(runkeeper_tweets) {
 	var achievements = 0;
 	var completedEvents = 0;
 	var miscellaneousPosts = 0;
+	var writtenCounter = 0;
 
 	//Here, we need to increment each counter according to the source of the post
 	tweet_array.forEach(element => {
@@ -62,47 +63,81 @@ function parseTweets(runkeeper_tweets) {
 
 
 	//Updates 'completedEvents' class tag
-	//document.getElementsByClassName('completedEvents')[0].innerText = ;
+	//Second line of text on "About the data" page
+	document.getElementsByClassName('completedEvents')[0].innerText = completedEvents;
+	//Last line of text on "About the data" page
+	document.getElementsByClassName('completedEvents')[1].innerText = completedEvents;
 	//
 
 	//Updates 'completedEventsPct' class tag
-	//document.getElementsByClassName('completedEventsPct')[0].innerText = ;
+	if(completedEvents == 0) {
+		document.getElementsByClassName('completedEventsPct')[0].innerText = completedEvents + "%";
+	} else {
+		//I got the concept of the following code from the link provided by the Prof (so we could use math.format())
+		var completedEventsPercentage = math.format(100 * (completedEvents / tweet_array.length), {notation: 'fixed', precision: 2});
+		document.getElementsByClassName('completedEventsPct')[0].innerText = completedEventsPercentage + "%";
+	}
 	//
 
 
 	//Updates 'liveEvents' class tag
-	//document.getElementsByClassName('liveEvents')[0].innerText = ;
+	document.getElementsByClassName('liveEvents')[0].innerText = liveEvents;
 	//
 
 	//Updates 'liveEventsPct' class tag
-	//document.getElementsByClassName('liveEventsPct')[0].innerText = ;
+	if(liveEvents == 0) {
+		document.getElementsByClassName('liveEventsPct')[0].innerText = liveEvents + "%" ;
+	} else {
+		var liveEventsPercentage = math.format(100 * (liveEvents / tweet_array.length), {notation: 'fixed', precision: 2});
+		document.getElementsByClassName('liveEventsPct')[0].innerText = liveEventsPercentage + "%" ;
+	}
 	//
 
 
 	//Updates 'achievements' class tag
-	//document.getElementsByClassName('achievements')[0].innerText = ;
+	document.getElementsByClassName('achievements')[0].innerText = achievements;
 	//
 
 	//Updates 'achievementsPct' class tag
-	//document.getElementsByClassName('achievementsPct')[0].innerText = ;
+	if(achievements == 0) {
+		document.getElementsByClassName('achievementsPct')[0].innerText = achievements + "%";
+	} else {
+		var achievementsPercentage = math.format(100 * (achievements / tweet_array.length), {notation: 'fixed', precision: 2});
+		document.getElementsByClassName('achievementsPct')[0].innerText = achievementsPercentage + "%";
+	}
 	//
 
 
 	//Updates 'miscellaneous' class tag
-	//document.getElementsByClassName('miscellaneous')[0].innerText = ;
+	document.getElementsByClassName('miscellaneous')[0].innerText = miscellaneousPosts;
 	//
 
 	//Updates 'miscellaneousPct' class
-	//document.getElementsByClassName('miscellaneousPct')[0].innerText = ;
+	if(miscellaneousPosts == 0) {
+		document.getElementsByClassName('miscellaneousPct')[0].innerText = miscellaneousPosts + "%";
+	} else {
+		var miscellaneousPercentage = math.format(100 * (achievements / tweet_array.length), {notation: 'fixed', precision: 2});
+		document.getElementsByClassName('miscellaneousPct')[0].innerText = miscellaneousPercentage + "%";
+	}
 	//
 
+	//Count how many of the posts include user written text
+	tweet_array.forEach(element => {
+		if(element.written == true) {
+			writtenCounter++;
+		}
+	});
+	//for debugging purposes
+	console.log("written counter: " + writtenCounter);
+	//
 
 	//Updates 'written' class tag
-	//document.getElementsByClassName('written')[0].innerText = ;
+	document.getElementsByClassName('written')[0].innerText = writtenCounter;
 	//
 
 	//Updates 'writtenPct class tag
-	//document.getElementsByClassName('writtenPct')[0].innerText = ;
+	var writtenPercentage = math.format(100 * (achievements / tweet_array.length), {notation: 'fixed', precision: 2});
+	document.getElementsByClassName('writtenPct')[0].innerText = writtenPercentage + "%";
 	//
 }
 
