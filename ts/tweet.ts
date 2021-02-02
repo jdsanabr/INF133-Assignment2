@@ -24,8 +24,8 @@ class Tweet {
         }
 
         //ex: "Just completed a 5.02 km run with @Runkeeper. Check it out! https://t.co/98hGkyBCkz #Runkeeper"
-        //text starts with "Just completed ", return "completed-event"
-        if(this.text.includes("completed")) {
+        //text contains/includes "completed " or "posted" (because otherwise it would be less than 90%), return "completed-event"
+        if(this.text.includes("completed") || this.text.includes("posted")) {
             return "completed-event";
         }
 
