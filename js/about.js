@@ -34,21 +34,31 @@ function parseTweets(runkeeper_tweets) {
 	//
 
 
-	/**
-	 * NOTE: in order to correctly update each class tag, we need counters to keep
-	 * track of each category (completed event, live event, etc.)
-	 */
+	//NOTE: in order to correctly update each class tag,
+	//we need counters to keep track of each category (completed event, live event, etc.)
 	var liveEvents = 0;
 	var achievements = 0;
 	var completedEvents = 0;
 	var miscellaneousPosts = 0;
 
-	/**
-	 * Here, we need to increment each counter according to the source of the post
-	 */
-	// tweet_array.array.forEach(element => {
-		
-	// });
+	//Here, we need to increment each counter according to the source of the post
+	tweet_array.forEach(element => {
+		if(element.source === "live-event") {
+			liveEvents++;
+		} else if(element.source === "achievement") {
+			achievements++;
+		} else if(element.source === "completed-event") {
+			completedEvents++;
+		} else if(element.source === "miscellaneous") {
+			miscellaneousPosts++;
+		}
+	});
+	//for debugging purposes
+	console.log("live events: " + liveEvents);
+	console.log("achievements: " + achievements);
+	console.log("completed events: " + completedEvents);
+	console.log("miscellaneous posts: " + miscellaneousPosts);
+	//
 
 
 	//Updates 'completedEvents' class tag
