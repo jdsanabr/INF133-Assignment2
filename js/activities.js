@@ -10,9 +10,10 @@ function parseTweets(runkeeper_tweets) {
 	});
 
 	//TODO: create a new array or manipulate tweet_array to create a graph of the number of tweets containing each type of activity.
-	my_array = tweet_array.array.forEach(element => {
+	my_array = tweet_array.forEach(element => {
 		if(element.activityType === "ski" || element.activityType === "run" || element.activityType === "walk"
 		|| element.activityType === "swim" || element.activityType === "bike") {
+			//console.log("activity type: " + element.activityType); //for debugging purposes
 			return new Tweet(element.text, element.created_at);
 		}
 	});
@@ -26,12 +27,12 @@ function parseTweets(runkeeper_tweets) {
 	  }, //comma needed as part of syntax
 	  //TODO: Add mark and encoding
 	  //
-	//   mark: "point",
-	//   encoding: {
-	// 	  x: {field: "time", timeUnit: "day"},
-	// 	  y: {field: "distance", aggregate: "quantitative"}
-	//   }
-	//   //
+	  mark: "point",
+	  encoding: {
+		  x: {field: "time", timeUnit: "day"},
+		  y: {field: "distance", aggregate: "quantitative"}
+	  }
+	  //
 	};
 	vegaEmbed('#activityVis', activity_vis_spec, {actions:false});
 
