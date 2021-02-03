@@ -10,13 +10,14 @@ function parseTweets(runkeeper_tweets) {
 	});
 
 	//TODO: create a new array or manipulate tweet_array to create a graph of the number of tweets containing each type of activity.
-	my_array = tweet_array.forEach(element => {
-		if(element.activityType === "ski" || element.activityType === "run" || element.activityType === "walk"
-		|| element.activityType === "swim" || element.activityType === "bike") {
-			//console.log("activity type: " + element.activityType); //for debugging purposes
-			return new Tweet(element.text, element.created_at);
+	var my_array = [];
+	for(var index = 0; index < tweet_array.length; index++) {
+		//This means that the activity type will be ski, run, walk, swim, or bike, refer to activityType() from tweet.ts
+		if(tweet_array[index].activityType !== "unknown" && tweet_array[index].activityType !== "") {
+			my_array.push(tweet_array[index]);
 		}
-	});
+	}
+	console.log("length of my array: " + my_array.length); //debugging purposes
 	//
 
 	activity_vis_spec = {
