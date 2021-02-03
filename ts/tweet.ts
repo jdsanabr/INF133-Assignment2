@@ -14,7 +14,7 @@ class Tweet {
         //ex: "Watch my run right now with @Runkeeper Live https://t.co/5bL8ZPdped #RKLive #Runkeeper"
         //text starts with "Watch my ", return "live-event"
         if(this.text.startsWith("Watch my ")) { //I removed "contains/includes "#RKlive"" since it produced 0 results
-            return "live-event";
+            return "live_event";
         }
 
         //ex: "text": "Achieved a new personal record with #Runkeeper: Distance... https://t.co/90lcXPp6SO #FitnessAlerts"
@@ -26,7 +26,7 @@ class Tweet {
         //ex: "Just completed a 5.02 km run with @Runkeeper. Check it out! https://t.co/98hGkyBCkz #Runkeeper"
         //text contains/includes "completed " or "posted" (because otherwise it would be less than 90%), return "completed-event"
         if(this.text.includes("completed") || this.text.includes("posted")) {
-            return "completed-event";
+            return "completed_event";
         }
 
         //if none of the above, then return 'miscellaneous'
