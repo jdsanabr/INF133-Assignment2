@@ -71,28 +71,22 @@ class Tweet {
 
         //TODO: parse the activity type from the text of the tweet
         //
-        //"completed" implies various activity types (i.e. run, walk, swim, etc)
-        if(this.text.includes("completed")) {
-            if(this.text.includes("run")) {
-                return "run";
-            }
-
-            if(this.text.includes("walk")) {
-                return "walk";
-            }
-
-            if(this.text.includes("swim")) {
-                return "swim";
-            }
-
-            if(this.text.includes("ski")) {
-                return "ski";
-            }
-
-            if(this.text.includes("bike")) {
-                return "bike"
-            }
+        if(this.text.includes("ski")) {
+            return "ski";
         }
+        if(this.text.includes("run")) {
+            return "run";
+        }
+        if(this.text.includes("walk")) {
+            return "walk";
+        }
+        if(this.text.includes("swim")) {
+            return "swim";
+        }
+        if(this.text.includes("bike")) {
+            return "bike"
+        }
+        //
 
         return "";
     }
@@ -104,15 +98,35 @@ class Tweet {
 
         //TODO: parse the distance from the text of the tweet
         //
-        //For ex, "text": "Just completed a 8.82 km run with @Runkeeper. Check it out! https://t.co/eo0KBQpKXk #Runkeeper"
-        //Extract 8.82
-        if(this.text.includes("run") || this.text.includes("walk")) {
+        var myNum = 0;
+        //For ex: "Just completed a 8.82 km run with @Runkeeper. Check it out! https://t.co/eo0KBQpKXk #Runkeeper"
+        //Need to return 8.82/1.609 (to convert to miles)
+        //or ex: "Just posted a 11.40 mi bike with @Runkeeper. Check it out! https://t.co/r0SEVy0COh #Runkeeper"
+        //Need to return 11.40
+        if(this.text.includes(" mi ") || this.text.includes(" km ")) {
+            //find the index of the distance in the text
             //I chose parseFloat() to extract the distance since the it will be a double (km or mi)
-            var myNum = parseFloat(this.text);
-            return myNum;
-        }
+            myNum = parseFloat(this.text);
 
-        return 0;
+            //Need to determine if distance is in kilometers. If so, convert to miles.
+            if(this.text.includes(" km ")) {
+                myNum = myNum / 1.609;
+                console.log("myNum is now " + myNum + " miles."); //for debugging
+            } else {
+                console.log("myNum is " + myNum + " miles. *Was always in miles*"); //for debugging
+            }
+        }
+        //
+
+
+        //NOTE TO SELF: commented out but left here in case I need to come back to it
+                // if(this.text.includes("run") || this.text.includes("walk")) {
+        //     //I chose parseFloat() to extract the distance since the it will be a double (km or mi)
+        //     myNum = parseFloat(this.text);
+        //     return myNum;
+        // }
+
+        return myNum;
     }
 
     getHTMLTableRow(rowNumber:number):string {
