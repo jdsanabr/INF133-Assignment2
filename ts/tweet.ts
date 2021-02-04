@@ -98,49 +98,41 @@ class Tweet {
 
         //TODO: parse the distance from the text of the tweet
         //
-        // var myNum = 0;
-        // //For ex: "Just completed a 8.82 km run with @Runkeeper. Check it out! https://t.co/eo0KBQpKXk #Runkeeper"
-        // //Need to return 8.82/1.609 (to convert to miles)
-        // //or ex: "Just posted a 11.40 mi bike with @Runkeeper. Check it out! https://t.co/r0SEVy0COh #Runkeeper"
-        // //Need to return 11.40
-        // if(this.text.includes(" mi ") || this.text.includes(" km ")) {
-        //     //find the index of the distance in the text
-        //     var tempStr = ""; //will get rid of whitespace so parseFloat can work
-        //     tempStr = this.text.split(" ").join("");
-        //     console.log("tempStr: " + tempStr.substring(14, this.text.indexOf(" km")));
+        //will used these to skim current text and retrieve distance
+        var index1 = 0, index2 = 0;
+        //this will contain the distance stated in the current text
+        var dist:number = 0;
+        var tempStr = this.text;
 
-        //     //I chose parseFloat() to extract the distance since the it will be a double (km or mi)
-        //     myNum = parseFloat(tempStr);
-        //     console.log("myNum after parseFloat(): " + myNum);
+       // console.log("temp: " + tempStr);
 
-        //     // if(this.text.includes(" mi ")) {
-        //     //     tempStr = this.text.substring(0, this.text.indexOf(" mi"));
-        //     //     myNum = parseFloat(tempStr);
-        //     //     console.log("myNum after parseFloat: " + myNum);
-        //     // }
+        //to zone in closer to the float value in the current text
+        index1 = tempStr.indexOf(" a ") + 2;
+        if(this.text.includes(" km ")) {
+            index2 = tempStr.indexOf(" km ") + 1;
+        } else if(this.text.includes(" mi ")) {
+            index2 = tempStr.indexOf(" mi ") + 1;
+        }
+        tempStr = this.text.substring(index1, index2);
 
-        //     // //Need to determine if distance is in kilometers. If so, convert to miles.
-        //     // if(this.text.includes(" km ")) {
-        //     //     tempStr = this.text.substring(0, this.text.indexOf(" km"));
-        //     //     myNum = parseFloat(tempStr);
-        //     //     console.log("tempStr: " + parseFloat(tempStr));
+        //I chose parseFloat() to extract the distance since the it will be a double (km or mi)
+        dist = parseFloat(tempStr);
 
-        //     //     myNum = myNum / 1.609;
-        //     //     console.log("myNum is now " + myNum + " miles."); //for debugging
-        //     //     return myNum;
-        //     // } else {
-        //     //     console.log("myNum is " + myNum + " miles. *Was always in miles*"); //for debugging
-        //     // }
-        // }
+        //if distance is in km, convert to mi
+        if(this.text.includes(" km ")) {
+           dist = dist / 1.609;
+        }
+
+        //round to 2 decimal places
+        dist = Number(dist.toFixed(2));
+
+        //console.log("distance = " + dist + " in miles");
+
+        //just in case dist = NaN (for whatever reason, *sigh*)
+        if(dist != NaN) {
+            return dist; //distance returned in miles
+        }
         //
-
-
-        //NOTE TO SELF: commented out but left here in case I need to come back to it
-                // if(this.text.includes("run") || this.text.includes("walk")) {
-        //     //I chose parseFloat() to extract the distance since the it will be a double (km or mi)
-        //     myNum = parseFloat(this.text);
-        //     return myNum;
-        // }
 
         return 0;
     }
