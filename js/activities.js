@@ -10,28 +10,29 @@ function parseTweets(runkeeper_tweets) {
 	});
 
 	//TODO: create a new array or manipulate tweet_array to create a graph of the number of tweets containing each type of activity.
-	var my_array = [];
+	var my_array = []; //will have tweets containing each type of activity
 	for(var index = 0; index < tweet_array.length; index++) {
 		//This means that the activity type will be ski, run, walk, swim, or bike, refer to activityType() from tweet.ts
 		if(tweet_array[index].activityType !== "unknown" && tweet_array[index].activityType !== "") {
 			my_array.push(tweet_array[index]);
 		}
 	}
-	console.log("length of my array: " + my_array.length); //debugging purposes
+	//console.log("element 0's distance: " + tweet_array[1].distance); //debugging purposes
 	//
 
 	activity_vis_spec = {
 	  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
 	  "description": "A graph of the number of Tweets containing each type of activity.",
 	  "data": {
-	    "values": tweet_array
+	    "values": tweet_array //idk if this needs to be my_array or tweet_array
 	  }, //comma needed as part of syntax
 	  //TODO: Add mark and encoding
 	  //
 	  mark: "point",
 	  encoding: {
 		  x: {field: "time", timeUnit: "day"},
-		  y: {field: "distance", aggregate: "quantitative"}
+		  y: {field: "distance", type: "quantitative"},
+		  color: {field: "activityType", type: "nominal"}
 	  }
 	  //
 	};
