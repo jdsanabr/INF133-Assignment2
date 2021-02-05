@@ -25,6 +25,7 @@ function parseTweets(runkeeper_tweets) {
 //Global variables:
 var writtenTweets_array = []; //Will save tweets that have user written stuff
 var input, textValue;
+var count = 0;
 //
 
 function addEventHandlerForSearch() {
@@ -38,7 +39,17 @@ function addEventHandlerForSearch() {
 	//code snippet is from: https://www.youtube.com/watch?v=SWkPXbQXArk
 	input.addEventListener('input', (event) => {
 		textValue = event.target.value;
-		console.log(textValue);
+		console.log(textValue); //for debugging purposes
+		//Next line is what updates: ...Tweets contain the text ''
+		document.getElementById('searchText').innerText = textValue;
+
+		// for(var index = 0; index < writtenTweets_array.length; index++) {
+		// 	if(writtenTweets_array[index].writtenText.includes(textValue)) {
+		// 		//console.log(writtenTweets_array[index].writtenText);
+		// 		count++;
+		// 		console.log(count);
+		// 	}
+		// }
 	});
 }
 
