@@ -42,7 +42,7 @@ function parseTweets(runkeeper_tweets) {
 	//TODO: create the visualizations which group the three most-tweeted activities by the day of the week.
 	//Use those visualizations to answer the questions about which activities tended to be longest and when.
 
-	// activity_vis_spec = {
+	// distanceVis_spec = {
 	// 	"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
 	// 	"description": "A graph of the number of Tweets containing each type of activity.",
 	// 	"data": {
@@ -58,7 +58,25 @@ function parseTweets(runkeeper_tweets) {
 	// 	}
 	// 	//
 	//   };
-	//   vegaEmbed('#activityVis', activity_vis_spec, {actions:false});
+	//   vegaEmbed('#distanceVis', distanceVis_spec, {actions:false});
+
+		// distanceVisAggregated_spec = {
+	// 	"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+	// 	"description": "A graph of the number of Tweets containing each type of activity.",
+	// 	"data": {
+	// 	  "values": my_array //changed from twet_array
+	// 	}, //comma needed as part of syntax
+	// 	//TODO: Add mark and encoding
+	// 	//
+	// 	mark: "point", filled: false,
+	// 	encoding: {
+	// 		x: {field: "time", timeUnit: "day", },
+	// 		y: {field: "distance", type: "quantitative"},
+	// 		color: {field: "Activity Type", type: "nominal"}
+	// 	}
+	// 	//
+	//   };
+	//   vegaEmbed('#distanceVisAggregated', distanceVisAggregated_spec, {actions:false});
 }
 
 //Wait for the DOM to load
