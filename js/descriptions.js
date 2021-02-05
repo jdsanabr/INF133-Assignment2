@@ -12,20 +12,34 @@ function parseTweets(runkeeper_tweets) {
 		return new Tweet(tweet.text, tweet.created_at);
 	});
 
-	//Will save tweets that have user written stuff
-	var writtenTweets_array = [];
 	for(var i = 0; i < tweet_array.length; i++) {
 		if(tweet_array[i].written == true) {
 			writtenTweets_array.push(tweet_array[i]);
-			//console.log(tweet_array[i].written); //for debugging purposes
+				//console.log(tweet_array[i].written); //for debugging purposes
 		}
 	}
 	//Written tweets have been filtered
 	//
 }
 
+//Global variables:
+var writtenTweets_array = []; //Will save tweets that have user written stuff
+var input, textValue;
+//
+
 function addEventHandlerForSearch() {
 	//TODO: Search the written tweets as text is entered into the search box, and add them to the table
+
+	//Remember:
+	//"searchCount" and "searchText" Id's should also update
+	input = document.getElementById('textFilter');
+
+	//This is how I get user input
+	//code snippet is from: https://www.youtube.com/watch?v=SWkPXbQXArk
+	input.addEventListener('input', (event) => {
+		textValue = event.target.value;
+		console.log(textValue);
+	});
 }
 
 //Wait for the DOM to load
