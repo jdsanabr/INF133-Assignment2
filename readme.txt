@@ -2,7 +2,7 @@
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
-*/10
+6.25/10
 - 1/1 Tweet dates
 - 1/1 Tweet categories
 - 1/1 User-written tweets
