@@ -86,6 +86,18 @@ class Tweet {
         if(this.text.includes("bike")) {
             return "bike"
         }
+        if(this.text.includes("elliptical workout")){
+            return "elliptical workout"
+        }
+        if(this.text.includes("hike")) {
+            return "hike";
+        }
+        if(this.text.includes("skate")) {
+            return "skate";
+        }
+        if(this.text.includes("row")) {
+            return "row";
+        }
         //
 
         return "";
