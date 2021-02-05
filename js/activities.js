@@ -14,7 +14,8 @@ function parseTweets(runkeeper_tweets) {
 	for(var index = 0; index < tweet_array.length; index++) {
 		//This means that the activity type will be ski, run, walk, swim, or bike, refer to activityType() from tweet.ts
 		if(tweet_array[index].activityType !== "unknown" && tweet_array[index].activityType !== "") {
-			my_array.push({"time": tweet_array[index].time, "distance": tweet_array[index].distance});
+			my_array.push({"time": tweet_array[index].time,
+			"distance": tweet_array[index].distance}, {"Activity Type": tweet_array[index].activityType});
 		}
 	}
 	//console.log("element 0's distance: " + tweet_array[1].distance); //debugging purposes
@@ -32,7 +33,7 @@ function parseTweets(runkeeper_tweets) {
 	  encoding: {
 		  x: {field: "time", timeUnit: "day", },
 		  y: {field: "distance", type: "quantitative"},
-		  color: {field: "activityType", type: "nominal"}
+		  color: {field: "Activity Type", type: "nominal"}
 	  }
 	  //
 	};
@@ -40,6 +41,24 @@ function parseTweets(runkeeper_tweets) {
 
 	//TODO: create the visualizations which group the three most-tweeted activities by the day of the week.
 	//Use those visualizations to answer the questions about which activities tended to be longest and when.
+
+	// activity_vis_spec = {
+	// 	"$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+	// 	"description": "A graph of the number of Tweets containing each type of activity.",
+	// 	"data": {
+	// 	  "values": my_array //changed from twet_array
+	// 	}, //comma needed as part of syntax
+	// 	//TODO: Add mark and encoding
+	// 	//
+	// 	mark: "point", filled: false,
+	// 	encoding: {
+	// 		x: {field: "time", timeUnit: "day", },
+	// 		y: {field: "distance", type: "quantitative"},
+	// 		color: {field: "Activity Type", type: "nominal"}
+	// 	}
+	// 	//
+	//   };
+	//   vegaEmbed('#activityVis', activity_vis_spec, {actions:false});
 }
 
 //Wait for the DOM to load
