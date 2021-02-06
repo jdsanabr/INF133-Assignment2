@@ -77,11 +77,17 @@ class Tweet {
         if(this.text.includes("run")) {
             return "run";
         }
+        if(this.text.includes("nordic walk")) {
+            return "nordic walk";
+        }
         if(this.text.includes("walk")) {
             return "walk";
         }
         if(this.text.includes("swim")) {
             return "swim";
+        }
+        if(this.text.includes("mtn bike")) {
+            return "mtn bike";
         }
         if(this.text.includes("bike")) {
             return "bike"
@@ -97,6 +103,15 @@ class Tweet {
         }
         if(this.text.includes("row")) {
             return "row";
+        } 
+        if(this.text.includes("activity")) {
+            return "activity";
+        }
+        if(this.text.includes("MySports Freestyle")) {
+            return "MySports Freestyle";
+        }
+        if(this.text.includes("chair ride")) {
+            return "chair ride";
         }
         //
 
